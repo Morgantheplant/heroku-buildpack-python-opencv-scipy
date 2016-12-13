@@ -98,6 +98,12 @@ RUN make install
 WORKDIR /app/.heroku
 RUN rm -rf opencv-2.4.11
 
+# Install basemap
+RUN tar -xvf basemap-1.0.7.tar.gz 
+WORKDIR /app/.heroku/basemap-1.0.7/geos-3.3.3
+RUN ./configure --prefix=/app/.heroku/vendor/
+RUN make && make install
+
 
 # Create vendor package
 WORKDIR /app/
