@@ -100,8 +100,9 @@ RUN pip install -v matplotlib==1.5.3
 
 # Install basemap
 RUN tar -xvf basemap-1.0.7.tar.gz 
-RUN rm basemap-1.0.7.tar.gz
+RUN rm -rf basemap-1.0.7.tar.gz
 WORKDIR /app/.heroku/basemap-1.0.7
+RUN rm -rf geos-3.3.3
 RUN ./configure --prefix=/app/.heroku/vendor
 RUN pip install -v basemap-1.0.7
 
